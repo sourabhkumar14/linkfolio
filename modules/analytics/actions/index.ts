@@ -128,20 +128,16 @@ export const getDailyProfileVisits = async (userId: string, days: number = 30) =
 
 
 
-    // const dailyVisits = visits.reduce((acc, visit) => {
-    //   const date = visit.visitedAt.toISOString().split('T')[0];
-    //   acc[date] = (acc[date] || 0) + 1;
-    //   return acc;
-    // }, {} as Record<string, number>);
+    const dailyVisits = visits.reduce((acc, visit) => {
+      const date = visit.visitedAt.toISOString().split('T')[0];
+      acc[date] = (acc[date] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
 
 
 
 
-const dailyVisits = visits.reduce((acc: Record<string, number>, visit) => {
-  const date = visit.visitedAt.toISOString().split("T")[0];
-  acc[date] = (acc[date] || 0) + 1;
-  return acc;
-}, {} as Record<string, number>);
+
 
 
 
